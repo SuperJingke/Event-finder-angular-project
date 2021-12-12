@@ -10,29 +10,34 @@
             <img src="../../assets/Images/BookUs.PNG">
             <br/><br/><br/>
             <img src="../../assets/Images/Group 20.png">
-            <form>
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm">
                 <br/><br/>
                 <h1>Book Now </h1>
                 <br/><br/>
                 <div class="form-group">
                   <label for="exampleInputName">Name</label>
-                  <input type="email" class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Name">
+                  <input type="email" class="form-control" id="Name" aria-describedby="emailHelp" placeholder="Name" required>
+                  <span class="help-block" *ngIf="(submitted && !Name.valid) ||(!Name.valid && Name.touched)">Name is required</span>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPhone">Phone Number</label>
-                  <input type="password" class="form-control" id="exampleInputPhone" placeholder="Phone Number">
+                  <input type="password" class="form-control" id="PhoneNumber" placeholder="Phone Number">
+                  <span class="help-block" *ngIf="(submitted && !PhoneNumber.valid) ||(!PhoneNumber.valid && PhoneNumber.touched)">Phone Number is required</span>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail">E-mail</label>
-                    <input type="email" class="form-control" id="exampleInputEmail" placeholder="E-Mail">
+                    <input type="email" class="form-control" id="Email" placeholder="E-Mail">
+                    <span class="help-block" *ngIf="(submitted && !Email.valid) ||(!Email.valid && Email.touched)">Email is required</span>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputIntrestedIn">Intrested In</label>
-                    <input type="email" class="form-control" id="exampleInputIntrestedIn" placeholder="Intrested In">
+                    <input type="email" class="form-control" id="IntrestedIn" placeholder="Intrested In">
+                    <span class="help-block" *ngIf="(submitted && !IntrestedIn.valid) ||(!IntrestedIn.valid && IntrestedIn.touched)">Intrested In is required</span>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputMessage">Message</label>
-                    <input type="email" class="form-control" id="exampleInputMessage" placeholder="Message">
+                    <input type="email" class="form-control" id="Message" placeholder="Message">
+                    <span class="help-block" *ngIf="(submitted && !Message.valid) ||(!Message.valid && Message.touched)">Message is required</span>
                   </div>                  
                
                 <button type="submit" class="btn btn-primary">SEND EMAIL</button>
