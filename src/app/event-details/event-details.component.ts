@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router,ParamMap } from '@angular/router';
 import { from } from 'rxjs';
@@ -34,34 +34,35 @@ public Email:string;
     private bookeventservice: BookEventService
   ) { }
 
-  ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      this.eventId = params['eventId'];
-    });
-  }
+  ngOnInit() {}
+   //private _eventID = 0;
+
+
+  @Input() eventID: number;
+/*@Input() set eventID(eventID: number){
+  this._eventID = eventID;
+}*/
+
   onSubmit(myform: NgForm)
   {
     this.submitted = true;
+    console.log(this.eventID);
     if (myform.valid)
     {
-      this.bookeventservice.bookEvent(this.eventId,this.Email,1).subscribe((data: any) => 
-      {
-        console.log(data);
-        this.eventdetails = <EventDetails>data;
-      }, (err: any) => {  console.log(err.error.status);
-    });
+      this.bookeventservice.bookEvent( this.eventID,this.Email,1).subscribe((data: any) => 
+        {
+          console.log(data);
+          this.eventdetails = <EventDetails>data;
+        }, (err: any) => {  console.log(err.error.status);
+      });
 
-              //this.bookeventservice.bookEvent(this.eventId,this.Email,1);
-              this.msg = "You have successfuly booked for the event!!!";  
-              this.submitted = false;
-              myform.reset();
-              
+      //this.bookeventservice.bookEvent(this.eventId,this.Email,1);
+      this.msg = "You have successfuly booked for the event!!!";  
+      this.submitted = false;
+      myform.reset();
+      
     } 
-    else
-    {
-          this.submitted = false;
-          this.msg = "Entry is not completed!";
-    }
+ 
   }
 
   }
