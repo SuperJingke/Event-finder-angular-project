@@ -1,21 +1,23 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router,ParamMap } from '@angular/router';
-import { from } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { EventDetails } from '../Model/EventDetails';
 import { BookEventService } from '../service/bookeventservice';
+import { SelectedEventService } from '../service/selectedEventService';
 
 @Component({
   selector: 'app-event-details',
   templateUrl: './event-details.component.html',
   styleUrls: ['./event-details.component.css']
 })
-export class EventDetailsComponent implements OnInit {
+export class EventDetailsComponent implements OnInit, OnDestroy {
   public msg: string;
   public submitted: boolean = false;
-public eventId:number;
-public Email:string;
+  public eventId:number;
+  public Email:string;
+  subscription: Subscription;
 
 
   public eventdetails : EventDetails = 
@@ -31,8 +33,13 @@ public Email:string;
     private http: HttpClient, 
     private router: Router,
     private route: ActivatedRoute,
-    private bookeventservice: BookEventService
-  ) { }
+    private bookeventservice: BookEventService,
+    private selectedEventService : SelectedEventService,
+
+  ) { 
+    this.subscription = selectedEventService.selectedEvent$.subscribe(
+       selectedEvent => { this.eventdetails = selectedEvent; });
+  }
 
   ngOnInit() {}
    //private _eventID = 0;
@@ -63,6 +70,11 @@ public Email:string;
       
     } 
  
+  }
+
+  ngOnDestroy(){
+    // prevent memory leak
+    this.subscription.unsubscribe();
   }
 
   }
