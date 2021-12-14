@@ -1,0 +1,25 @@
+.row {
+    display: flex;
+    text-align: right;
+}
+.navbar {
+    color: black;
+    text-decoration: none;
+}
+.nav-link-home {
+    padding: 0px 5px 0px 5px;
+    color: black;
+    text-decoration: none;
+    border-top: solid black 1px;
+    border-bottom: solid black 1px;
+}
+.nav-link{
+    color: black;
+    text-decoration: none;
+    padding: 5px 5px 5px 5px;
+
+}
+.nav-link :hover{
+    color: lightblue;
+}
+
