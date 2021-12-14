@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventDetails } from '../Model/EventDetails';
+import { SelectedEventService } from '../service/selectedEventService';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +10,8 @@ import { EventDetails } from '../Model/EventDetails';
 })
 export class HomeComponent implements OnInit {
 
-  @Output() eventDetails =new EventEmitter<EventDetails>();
-@Output() eventID  = new EventEmitter<number>();
+//  @Output() eventDetails =new EventEmitter<EventDetails>();
+//@Output() eventID  = new EventEmitter<number>();
 
   public sampleEvent : EventDetails = 
   {
@@ -22,7 +23,7 @@ export class HomeComponent implements OnInit {
     
    };
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private selectedEventService: SelectedEventService) { }
 
   ngOnInit() {
     this.sampleEvent = new EventDetails(1,'St. Jacobs Sparkles','k.t@test.com',
@@ -32,10 +33,12 @@ export class HomeComponent implements OnInit {
   
   onEventDetails()
   {
-
-    this.eventDetails.emit(this.sampleEvent);
-    this.eventID.emit(11);
-    console.log(this.eventID);
-     this.router.navigate(['/event-details']);
+  //    this.eventDetails.emit(this.sampleEvent);
+  //  this.eventID.emit(11);
+ 
+    console.log(this.sampleEvent);
+    this.router.navigate(['/event-details']).then(() => {
+      this.selectedEventService.selectEvent(this.sampleEvent);
+    });
   }
 }
