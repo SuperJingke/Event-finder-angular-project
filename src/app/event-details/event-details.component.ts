@@ -4,7 +4,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router,ParamMap } from '@angular/router';
 import { from } from 'rxjs';
 import { EventDetails } from '../Model/EventDetails';
-import { BookEventService } from '../service/bookeventservice';
+import { BookEventService } from '../service/bookeventService';
 
 @Component({
   selector: 'app-event-details',
