@@ -15,7 +15,6 @@ import { SelectedEventService } from '../service/selectedEventService';
 export class EventDetailsComponent implements OnInit, OnDestroy {
   public msg: string;
   public submitted: boolean = false;
-  public eventId:number;
   public Email:string;
   subscription: Subscription;
   public eventdetails : EventDetails;
@@ -34,21 +33,14 @@ export class EventDetailsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {}
-   //private _eventID = 0;
-
-
-  @Input() eventID: number;
-/*@Input() set eventID(eventID: number){
-  this._eventID = eventID;
-}*/
 
   onSubmit(myform: NgForm)
   {
     this.submitted = true;
-    console.log(this.eventID);
+    console.log(this.eventdetails.eventId);
     if (myform.valid)
     {
-      this.bookeventservice.bookEvent( this.eventID,this.Email,1).subscribe((data: any) => 
+      this.bookeventservice.bookEvent( this.eventdetails.eventId, 'user' /*this.Email*/,1).subscribe((data: any) => 
         {
           console.log(data);
           this.eventdetails = <EventDetails>data;

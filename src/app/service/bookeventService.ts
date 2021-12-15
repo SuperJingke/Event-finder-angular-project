@@ -26,20 +26,23 @@
     this.products = this._events.asObservable();
    }
 
- public bookEvent(eventid: number,email: string,count: number) 
+ public bookEvent(eventid: number, email: string,count: number) 
   {
     console.log('calling bookEvent');
     
     //return this.httpClient.get(`${this.baseUrl}event/book/${eventid}/${email}/${count}`);
-    return this.httpClient.get(`${this.baseUrl}event/book/1/k.t@test.com/1`);
+    return this.httpClient.get(`${this.baseUrl+'event/book/' + eventid + '/' + email + '/' + count}`);
+  }
+
+  public getBookedEvents(email: string)
+  {
+    console.log('calling getBookedEvents');
+    return this.httpClient.get(`${this.baseUrl+'myEvents/'+email}`);
   }
 
   public SearchUnbookedEvents(email: string, searchString: string)
   {
     console.log('calling UnbookedEvents');
-    return this.httpClient.get(`${this.baseUrl+'unBookedEvents/'+email+'/'+searchString}`);
-  //  return this.httpClient.get(`${this.baseUrl}+'event/book/1/k.t@test.com/1`);
-  //  return this.httpClient.get(`${this.baseUrl+'product/'+id+'/productIdAndProductDescriptionEnglish/'+descriptionEnglish}`);
-
+    return this.httpClient.get(`${this.baseUrl+'unbookedEvents/'+email+'/'+searchString}`);
   }
 }

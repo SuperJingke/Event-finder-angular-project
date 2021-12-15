@@ -10,47 +10,48 @@ import { SelectedEventService } from '../service/selectedEventService';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-//  @Output() eventDetails =new EventEmitter<EventDetails>();
-//@Output() eventID  = new EventEmitter<number>();
-
-  public sampleEvent : EventDetails;
-
-  public events: EventDetails[] = []; 
+  public selectedEvent : EventDetails;
+  public myEvents: EventDetails[] = []
+  public searchEvents: EventDetails[] = []; 
 
   constructor(private router:Router, private selectedEventService: SelectedEventService,
     private bookEventService: BookEventService) { }
 
   ngOnInit() {
-   
-    /** 
-    this.bookEventService.SearchUnbookedEvents('k.t@test.com', '*').subscribe((data: any) => 
+
+    this.bookEventService.SearchUnbookedEvents('user', "*").subscribe((data: any) => 
         {
           console.log(data);
-          this.events = <EventDetails[]>data;
-        }, (err: any) => {  console.log(err.error.status);
+          this.searchEvents = <EventDetails[]>data;
+        }, (err: any) => {  console.log(err.error.status);this.searchEvents=[]
       });
-**/
+
+    this.bookEventService.getBookedEvents('user').subscribe((data: any) => 
+      {
+        console.log(data);
+        this.myEvents = <EventDetails[]>data;
+      }, (err: any) => {  console.log(err.error.status);this.searchEvents=[]
+    });
+   
   }
-  
-  onEventDetails()
+
+  onSearch (search:string) 
   {
-  //    this.eventDetails.emit(this.sampleEvent);
-  //  this.eventID.emit(11);
-  this.sampleEvent = this.events[0];
-  this.bookEventService.bookEvent(1,'k.t@test.com',1).subscribe((data: any) => 
+    this.bookEventService.SearchUnbookedEvents('user', search).subscribe((data: any) => 
+        {
+          console.log(data);
+          this.searchEvents = <EventDetails[]>data;
+        }, (err: any) => {  console.log(err.error.status);this.searchEvents=[]
+      });
+
+  }
+
+  onEventDetails(event : EventDetails)
   {
-    console.log(data);
-  //  this.sampleEvent = new EventDetails(data.eventId, data.FullName,"na","na","na","na","na","na","na");
-  //  this.events.push(this.sampleEvent);
-    this.events.push(data);
-    this.events.push(data);
-  
-  }, (err: any) => {  console.log(err.error.status);
-});
-//console.log(this.sampleEvent);
-    // this.router.navigate(['/event-details']).then(() => {
-    //   this.selectedEventService.selectEvent(this.sampleEvent);
-    // });
+    this.selectedEvent = event;
+    console.log(this.selectedEvent);
+    this.router.navigate(['/event-details']).then(() => {
+      this.selectedEventService.selectEvent(this.selectedEvent);
+    });
   }
 }

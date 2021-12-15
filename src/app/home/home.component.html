@@ -1,20 +1,31 @@
 <p>My Events</p>
 
 <ul class="list-unstyled">
-    <li class="media" *ngFor="let searchevent of events">
-      <img class="mr-3" src={{searchevent.imageUrl}} alt="Generic placeholder image" width="250" height="250">
+    <li class="media" *ngFor="let myEvent of myEvents">
+      <img class="mr-3" src={{myEvent.imageUrl}} alt="Generic placeholder image" width="250" height="250">
       <div class="media-body">
-        <h5 class="mt-0 mb-1">{{searchevent.brief}}</h5>
-        {{searchevent.fullDescription}}
-        <button (click)="onEventDetails()" type="btn btn-primary">View More </button>
+        <h5 class="mt-0 mb-1">{{myEvent.fullName}}</h5>
+        {{myEvent.brief}}
+        <button (click)="onEventDetails(myEvent)" type="btn btn-primary">View More </button>
       </div>
     </li>
 </ul>
 
 <button
 class="btn btn-primary"
-(click)="onEventDetails($event,eventID)">View More</button>
+(click)="onSearch('*')">Search Event</button>
 
+
+<ul class="list-unstyled">
+  <li class="media" *ngFor="let searchevent of searchEvents">
+    <img class="mr-3" src={{searchevent.imageUrl}} alt="Generic placeholder image" width="250" height="250">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">{{searchevent.fullName}}</h5>
+      {{searchevent.brief}}
+      <button (click)="onEventDetails(searchevent)" type="btn btn-primary">Book Now</button>
+    </div>
+  </li>
+</ul>
 
 
 <h5 *ngIf="events?.length==0">No records available!</h5>
