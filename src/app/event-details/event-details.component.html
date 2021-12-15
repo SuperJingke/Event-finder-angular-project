@@ -10,6 +10,7 @@
             <img src="../../assets/Images/BookUs.PNG">
             <br/><br/><br/>
             <h2 style="color: green">{{forecast}}</h2>
+            <span *ngIf="this.eventdetails.isBooked">You have already booked for this event :</span>
             <h1>{{eventdetails.brief}}</h1>
             <div class="col-lg-6">
               <span class="success-message">{{msg}}</span>
