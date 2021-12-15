@@ -12,6 +12,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { GallaryComponent } from './gallary/gallary.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { GallaryComponent } from './gallary/gallary.component';
     SubscriptionFormComponent,
     AboutusComponent,
     NavbarComponent,
-    GallaryComponent
+    GallaryComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
