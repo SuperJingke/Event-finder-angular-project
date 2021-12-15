@@ -23,7 +23,16 @@ public class Event implements Serializable{
 	private String dateStart;
     private String dateEnd;
     private String fullDescription;
-    private Map<String,Integer> bookings = new HashMap<String,Integer>();
+    private Boolean isBooked;
+    public Boolean getIsBooked() {
+		return isBooked;
+	}
+
+	public void setIsBooked(Boolean isBooked) {
+		this.isBooked = isBooked;
+	}
+
+	private Map<String,Integer> bookings = new HashMap<String,Integer>();
     
 	public Event(int eventId, String fullName, String brief, String contact, String imageUrl, 
 			String location, String postalCode,
@@ -135,6 +144,7 @@ public class Event implements Serializable{
 
 	public void updateBooking(String user, int count) {
 		bookings.put(user, count);
+		this.isBooked =true;
 	}
 
 	public int getBookingCount(String user) {

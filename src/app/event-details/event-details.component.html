@@ -10,15 +10,18 @@
             <img src="../../assets/Images/BookUs.PNG">
             <br/><br/><br/>
             <h2 style="color: green">{{forecast}}</h2>
+            <h1>{{eventdetails.brief}}</h1>
+            <div class="col-lg-6">
+              <span class="success-message">{{msg}}</span>
+            </div>
             <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+             <span *ngIf="!this.eventdetails.isBooked">
                 <br/>
-                <h1>Book Now  {{ eventID }}</h1>
+                <h1>Book Now {{ eventID }}</h1>
+              
                 <br/>
                 <div  class="row">
-                <div class="col-lg-6">
-                    
-                    <span class="success-message">{{msg}}</span>
-                </div>
+              
                 <br/>
                 </div>
                 <div class="form-group">
@@ -31,13 +34,13 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPhone">Phone Number</label>
-                  <input type="text" class="form-control" id="PhoneNumber" name="PhoneNumber" placeholder="Phone Number"  [(ngModel)]="eventdetails.brief"
+                  <input type="text" class="form-control" id="PhoneNumber" name="PhoneNumber" placeholder="Phone Number"  [(ngModel)]="eventdetails.PhoneNumber"
                   required #PhoneNumber="ngModel">
                   <span class="help-block" *ngIf="(submitted && !PhoneNumber.valid) ||(!PhoneNumber.valid && PhoneNumber.touched)">Phone Number is required</span>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail">E-mail</label>
-                    <input type="email" class="form-control" id="Email" name="Email" placeholder="E-Mail" [(ngModel)]="eventdetails.brief"
+                    <input type="email" class="form-control" id="Email" name="Email" placeholder="E-Mail" [(ngModel)]="eventdetails.Email"
                     required #Email="ngModel">
                     <span class="help-block" *ngIf="(submitted && !Email.valid) ||(!Email.valid && Email.touched)">Email is required</span>
                   </div>
@@ -56,6 +59,7 @@
                
                 <button type="submit" class="btn btn-primary">Book Now</button>
                 <br/><br/><br/>
+              </span>
               </form>
         </div>
       </div>

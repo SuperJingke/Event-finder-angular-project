@@ -34,7 +34,9 @@ export class EventDetailsComponent implements OnInit, OnDestroy {
        selectedEvent => { this.onEventSelected(selectedEvent) });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
   onSubmit(myform: NgForm)
   {
@@ -60,10 +62,14 @@ export class EventDetailsComponent implements OnInit, OnDestroy {
 
   onEventSelected(selectedEvent:EventDetails) {
     this.eventdetails = selectedEvent;
+    console.log(this.eventdetails.bookings);
+    this.forecast =" ";
+    if(selectedEvent != null && this.eventdetails.postalCode != '')
+    {
     this.weatherService.getForecast(this.eventdetails.postalCode).subscribe((data:any) =>
     {
       console.log(data)
-      this.forecast =" ";
+
       if (data.length>0) {
         if( data[0].precipProb < 10 )
           this.forecast = "Forecast for your event: Sunny Skies Ahead";
@@ -74,6 +80,7 @@ export class EventDetailsComponent implements OnInit, OnDestroy {
 
     }, (err: any) => {console.log(err.error.status)
     });
+  }
   }
 
   ngOnDestroy(){

@@ -2,7 +2,10 @@
 export class EventDetails {
 
     constructor(
+
     public eventId: number,
+    public isBooked:boolean =false,
+    public bookings:any,
     public fullName: string,  
     public brief: string, 
     public contact: string, 

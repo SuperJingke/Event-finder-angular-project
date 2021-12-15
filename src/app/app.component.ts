@@ -9,7 +9,7 @@ import { SelectedEventService } from './service/selectedEventService';
 })
 export class AppComponent {
   title = 'Events-all-around';
-  public dummyEvent : EventDetails = new EventDetails(0, "Your next event", "brief", "", "","","M4J%201W5","","","");
+  public dummyEvent : EventDetails = new EventDetails(0,false,null, "Your next event", "brief", "", "","","M4J%201W5","","","");
 
   constructor(private selectedEventService: SelectedEventService) {
     this.selectedEventService.selectEvent(this.dummyEvent);
