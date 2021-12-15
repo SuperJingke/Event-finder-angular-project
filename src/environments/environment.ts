@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:8080/event-finder/rest/'
+  baseUrl: 'http://localhost:8080/event-finder/rest/',
+  weatherUrl: 'https://api.weathersource.com/v1/f3c0e7fe7040833ccbe4/postal_codes/'
 };
 
 /*
