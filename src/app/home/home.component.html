@@ -3,8 +3,8 @@
     <li class="media" *ngFor="let event of events" id="{event.eventID}}">
       <img class="mr-3" src="..." alt="Generic placeholder image">
       <div class="media-body">
-        <h5 class="mt-0 mb-1">{{event.}}</h5>
-        {{prod.productDescriptionEnglish}}
+        <h5 class="mt-0 mb-1">{{event.Brief}}</h5>
+        {{event.FullDescription}}
       </div>
     </li>
 </ul>
