@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventDetails } from '../Model/EventDetails';
-import { BookEventService } from '../service/bookeventservice';
+import { BookEventService } from '../service/bookeventService';
 import { SelectedEventService } from '../service/selectedEventService';
 
 @Component({
