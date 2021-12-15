@@ -4,3 +4,32 @@
 .success-message{
     font-size: 16px; color: green;
 }  
+
+/* Footer */
+.footer-temp{
+    position:static;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    color: snow;
+    padding: 10px 0 0 5px;
+    margin-bottom: 0px;
+
+}
+ul {
+    text-decoration: none;
+}
+li{
+    text-decoration: none;
+    text-align: left;
+}
+.footer-link{
+    text-decoration: none;
+}
+
+.ft-logo{
+margin: 5px 5px 5px 5px;
+}
+
+/* End of footer */

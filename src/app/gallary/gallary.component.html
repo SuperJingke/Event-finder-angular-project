@@ -1,0 +1,9 @@
+<p>gallary works!</p>
+<ul class="list-unstyled row" style="margin: auto 20px auto 20px;">
+    <li class="media col-sm" *ngFor="let searchevent of searchEvents">
+      <img class="mr-3" src={{searchevent.imageUrl}} alt="Generic placeholder image" width="250" height="250">
+    </li>
+  </ul>
+  
+  
+  <h5 *ngIf="events?.length==0">No records available!</h5>

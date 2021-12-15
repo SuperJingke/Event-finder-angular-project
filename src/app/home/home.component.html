@@ -1,6 +1,26 @@
-<p>My Events</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+</head>
+<body>
+  <div class="row" style="margin: 4rem 0 0 0;">
+    <div class="col-sm-6" style="align-items: center;">
+      <h1>Winter Light show 2021</h1>
+      <h5 style="color: grey;">December 19 2021 to January 1st 2022</h5>
+    </div>
+    <div class="col-sm-4"><img src="/assets/Images/high-light-event.png" alt=""></div>
+    
+  
+  </div>
+  
+  
 
-<ul class="list-unstyled">
+<ul class="list-unstyled" style="margin: auto 20px auto 20px;">
+  <h2>My Events</h2>
     <li class="media" *ngFor="let myEvent of myEvents">
       <img class="mr-3" src={{myEvent.imageUrl}} alt="Generic placeholder image" width="250" height="250">
       <div class="media-body">
@@ -10,14 +30,14 @@
       </div>
     </li>
 </ul>
-
+<input type="text" placeholder="Search your Event">
 <button
 class="btn btn-primary"
 (click)="onSearch('*')">Search Event</button>
 
 
-<ul class="list-unstyled">
-  <li class="media" *ngFor="let searchevent of searchEvents">
+<ul class="list-unstyled row" style="margin: auto 20px auto 20px;">
+  <li class="media col-sm" *ngFor="let searchevent of searchEvents">
     <img class="mr-3" src={{searchevent.imageUrl}} alt="Generic placeholder image" width="250" height="250">
     <div class="media-body">
       <h5 class="mt-0 mb-1">{{searchevent.fullName}}</h5>
@@ -29,4 +49,59 @@ class="btn btn-primary"
 
 
 <h5 *ngIf="events?.length==0">No records available!</h5>
-<
+<!-- Footer -->
+<footer id="main-footer" class="page-footer footer-temp black text-center text-md-left mt-0">
+  <div class="row">
+      <!-- First Column -->
+      <div class="col-md-2 mx-auto">
+          <a href="#"><img src="../assets/Images/footer-logo.svg" alt="logo"></a>
+      </div>
+     
+      <!-- Second Column -->
+      <div class="col-md-2 mx-auto">
+          <ul>
+              <h5 class="title mb-4 mt-3 font-bold">Information</h5>
+              <p style="text-decoration: none;">Main</p>
+              <p>Gallary</p>
+              <p>Projects</p>
+              <p>Certifications</p>
+              <p>Contacts</p>
+          </ul>
+
+      </div>
+      
+      <!-- Third Column -->
+      <div class="col-md-2 mx-auto">
+          <ul class="footer-list">
+              <h5 class="title mb-4 mt-3 font-bold">Contacts</h5>
+              <p>Address</p>
+              <p>phone</p>
+              <p>Email</p>
+          </ul>
+      </div>
+     
+      <!-- Fourth column -->
+      <div class="col-md-4">
+          <div>
+              <h5 class="title mb-4 mt-3 font-bold">Social Media</h5>
+              <div><img class="ft-logo" src="../assets/Images/facebook.png" alt="facebook">
+              <img class="ft-logo" src="../assets/Images/twitter.png" alt="twitter">
+              <img class="ft-logo" src="../assets/Images/Linked In.png" alt="linkin">
+              <img class="ft-logo" src="../assets/Images/pininterest.png" alt="pinterest"></div>
+              
+          </div>
+
+      </div>
+      
+  </div>
+  <hr class="clearfix w-100 d-md-none black">
+
+  <div class="footer-copyright">
+      <div class="container-fluid">
+          © 2021 Copyright: <a href="#"> Event finder angular </a>
+
+      </div>
+  </div>
+</footer>
+</body>
+</html>
