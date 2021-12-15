@@ -60,7 +60,7 @@ export class EventDetailsComponent implements OnInit, OnDestroy {
 
   onEventSelected(selectedEvent:EventDetails) {
     this.eventdetails = selectedEvent;
-    this.weatherService.getForecast("m4j%201w5").subscribe((data:any) =>
+    this.weatherService.getForecast(this.eventdetails.postalCode).subscribe((data:any) =>
     {
       console.log(data)
       this.forecast =" ";

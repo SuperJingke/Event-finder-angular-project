@@ -14,29 +14,32 @@ public class Event implements Serializable{
 
 
 	private int eventId;
-    private String FullName; 
-    private String Brief;  
-    private String Contact;
-    private String ImageUrl;
-    private String Location;
-    private String DateStart;
-    private String DateEnd;
-    private String FullDescription;
+    private String fullName; 
+    private String brief;  
+    private String contact;
+    private String imageUrl;
+    private String location;
+    private String postalCode;
+	private String dateStart;
+    private String dateEnd;
+    private String fullDescription;
     private Map<String,Integer> bookings = new HashMap<String,Integer>();
     
-	public Event(int eventId, String fullName, String brief, String contact, String imageUrl, String location,
+	public Event(int eventId, String fullName, String brief, String contact, String imageUrl, 
+			String location, String postalCode,
 			String dateStart, String dateEnd, String fullDescription) {
 		
 		super();
 		this.eventId = eventId;
-		FullName = fullName;
-		Brief = brief;
-		Contact = contact;
-		ImageUrl = imageUrl;
-		Location = location;
-		DateStart = dateStart;
-		DateEnd = dateEnd;
-		FullDescription = fullDescription;
+		this.fullName = fullName;
+		this.brief = brief;
+		this.contact = contact;
+		this.imageUrl = imageUrl;
+		this.location = location;
+		this.postalCode = postalCode;
+		this.dateStart = dateStart;
+		this.dateEnd = dateEnd;
+		this.fullDescription = fullDescription;
 	}
 
 	private static final long serialVersionUID = -7788619177798333712L;
@@ -54,67 +57,75 @@ public class Event implements Serializable{
 	}
 
 	public String getFullName() {
-		return FullName;
+		return fullName;
 	}
 
 	public void setFullName(String fullName) {
-		FullName = fullName;
+		this.fullName = fullName;
 	}
 
 	public String getBrief() {
-		return Brief;
+		return brief;
 	}
 
 	public void setBrief(String brief) {
-		Brief = brief;
+		this.brief = brief;
 	}
 
 	public String getContact() {
-		return Contact;
+		return contact;
 	}
 
 	public void setContact(String contact) {
-		Contact = contact;
+		this.contact = contact;
 	}
 
 	public String getImageUrl() {
-		return ImageUrl;
+		return imageUrl;
 	}
 
 	public void setImageUrl(String imageUrl) {
-		ImageUrl = imageUrl;
+		this.imageUrl = imageUrl;
 	}
 
 	public String getLocation() {
-		return Location;
+		return location;
 	}
 
 	public void setLocation(String location) {
-		Location = location;
+		this.location = location;
+	}
+
+    public String getPostalCode() {
+		return postalCode;
+	}
+
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
 	}
 
 	public String getDateStart() {
-		return DateStart;
+		return dateStart;
 	}
 
 	public void setDateStart(String dateStart) {
-		DateStart = dateStart;
+		this.dateStart = dateStart;
 	}
 
 	public String getDateEnd() {
-		return DateEnd;
+		return dateEnd;
 	}
 
 	public void setDateEnd(String dateEnd) {
-		DateEnd = dateEnd;
+		this.dateEnd = dateEnd;
 	}
 
 	public String getFullDescription() {
-		return FullDescription;
+		return fullDescription;
 	}
 
 	public void setFullDescription(String fullDescription) {
-		FullDescription = fullDescription;
+		this.fullDescription = fullDescription;
 	}
 
     
