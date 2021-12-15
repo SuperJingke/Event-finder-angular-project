@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:8080/products-ut-wo-db/rest/'
+  baseUrl: 'http://localhost:8080/event-finder/rest/'
 };
 
 /*

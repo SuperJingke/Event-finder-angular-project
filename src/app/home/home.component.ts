@@ -16,29 +16,21 @@ export class HomeComponent implements OnInit {
 
   public sampleEvent : EventDetails;
 
-   events: EventDetails[] = new Array<EventDetails>(); 
+  public events: EventDetails[] = []; 
 
   constructor(private router:Router, private selectedEventService: SelectedEventService,
     private bookEventService: BookEventService) { }
 
   ngOnInit() {
-    
-  /*  this.bookEventService.SearchUnbookedEvents('k.t@test.com').subscribe((data: any) => 
+   
+    /** 
+    this.bookEventService.SearchUnbookedEvents('k.t@test.com', '*').subscribe((data: any) => 
         {
           console.log(data);
           this.events = <EventDetails[]>data;
         }, (err: any) => {  console.log(err.error.status);
-      });*/
-
-
-      this.bookEventService.bookEvent(1,'k.t@test.com',1).subscribe((data: any) => 
-        {
-          console.log(data);
-          this.events.push(data);
-          this.events.push(data);
-        }, (err: any) => {  console.log(err.error.status);
       });
-
+**/
   }
   
   onEventDetails()
@@ -46,9 +38,19 @@ export class HomeComponent implements OnInit {
   //    this.eventDetails.emit(this.sampleEvent);
   //  this.eventID.emit(11);
   this.sampleEvent = this.events[0];
-    console.log(this.sampleEvent);
-    this.router.navigate(['/event-details']).then(() => {
-      this.selectedEventService.selectEvent(this.sampleEvent);
-    });
+  this.bookEventService.bookEvent(1,'k.t@test.com',1).subscribe((data: any) => 
+  {
+    console.log(data);
+  //  this.sampleEvent = new EventDetails(data.eventId, data.FullName,"na","na","na","na","na","na","na");
+  //  this.events.push(this.sampleEvent);
+    this.events.push(data);
+    this.events.push(data);
+  
+  }, (err: any) => {  console.log(err.error.status);
+});
+//console.log(this.sampleEvent);
+    // this.router.navigate(['/event-details']).then(() => {
+    //   this.selectedEventService.selectEvent(this.sampleEvent);
+    // });
   }
 }

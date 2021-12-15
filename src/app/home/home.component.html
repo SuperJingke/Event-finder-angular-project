@@ -1,10 +1,12 @@
-<p>home works!</p>
+<p>My Events</p>
+
 <ul class="list-unstyled">
-    <li class="media" *ngFor="let event of events" id="{event.eventID}}">
-      <img class="mr-3" src="..." alt="Generic placeholder image">
+    <li class="media" *ngFor="let searchevent of events">
+      <img class="mr-3" src={{searchevent.imageUrl}} alt="Generic placeholder image" width="250" height="250">
       <div class="media-body">
-        <h5 class="mt-0 mb-1">{{event.Brief}}</h5>
-        {{event.FullDescription}}
+        <h5 class="mt-0 mb-1">{{searchevent.brief}}</h5>
+        {{searchevent.fullDescription}}
+        <button (click)="onEventDetails()" type="btn btn-primary">View More </button>
       </div>
     </li>
 </ul>
@@ -13,4 +15,7 @@
 class="btn btn-primary"
 (click)="onEventDetails($event,eventID)">View More</button>
 
-<button (click)="onEventDetails(1)" type="btn btn-primary">EventDetails </button>
+
+
+<h5 *ngIf="events?.length==0">No records available!</h5>
+<
