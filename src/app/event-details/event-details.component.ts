@@ -18,17 +18,9 @@ export class EventDetailsComponent implements OnInit, OnDestroy {
   public eventId:number;
   public Email:string;
   subscription: Subscription;
+  public eventdetails : EventDetails;
 
-
-  public eventdetails : EventDetails = 
-  {
-    eventId:null, 
-    FullName:null,
-    Email:null,
-    IntrestedIn:null,
-    Message:null
-    
-   };
+  
   constructor(
     private http: HttpClient, 
     private router: Router,

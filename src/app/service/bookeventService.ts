@@ -33,4 +33,12 @@
     //return this.httpClient.get(`${this.baseUrl}event/book/${eventid}/${email}/${count}`);
     return this.httpClient.get(`${this.baseUrl}event/book/1/k.t@test.com/1`);
   }
+
+  public SearchUnbookedEvents(email: string)
+  {
+    console.log('calling UnbookedEvents');
+    //return this.httpClient.get(`${this.baseUrl}unBookedEvents/k.t@test.com/*`);
+    return this.httpClient.get(`${this.baseUrl}event/book/1/k.t@test.com/1`);
+
+  }
 }

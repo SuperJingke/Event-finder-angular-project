@@ -1,4 +1,14 @@
 <p>home works!</p>
+<ul class="list-unstyled">
+    <li class="media" *ngFor="let event of events" id="{event.eventID}}">
+      <img class="mr-3" src="..." alt="Generic placeholder image">
+      <div class="media-body">
+        <h5 class="mt-0 mb-1">{{event.}}</h5>
+        {{prod.productDescriptionEnglish}}
+      </div>
+    </li>
+</ul>
+
 <button
 class="btn btn-primary"
 (click)="onEventDetails($event,eventID)">View More</button>
