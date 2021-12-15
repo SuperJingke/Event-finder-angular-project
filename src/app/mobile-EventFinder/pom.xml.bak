@@ -9,11 +9,11 @@
 		<version>2.0.5.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.eventfinder.app.ws</groupId>
-	<artifactId>mobile-EvenFinder-ws</artifactId>
+	<groupId>com.appsdeveloperblog.app.ws</groupId>
+	<artifactId>mobile-app-ws</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>mobile-EvenFinder-ws</name>
-	<description>Event Finder project for Spring Boot</description>
+	<name>mobile-app-ws</name>
+	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>

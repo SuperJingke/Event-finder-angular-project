@@ -4,7 +4,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router,ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { EventDetails } from '../Model/EventDetails';
-import { BookEventService } from '../service/bookeventservice';
+import { BookEventService } from '../service/bookeventService';
 import { SelectedEventService } from '../service/selectedEventService';
 
 @Component({
@@ -18,17 +18,9 @@ export class EventDetailsComponent implements OnInit, OnDestroy {
   public eventId:number;
   public Email:string;
   subscription: Subscription;
+  public eventdetails : EventDetails;
 
-
-  public eventdetails : EventDetails = 
-  {
-    eventId:null, 
-    FullName:null,
-    Email:null,
-    IntrestedIn:null,
-    Message:null
-    
-   };
+  
   constructor(
     private http: HttpClient, 
     private router: Router,

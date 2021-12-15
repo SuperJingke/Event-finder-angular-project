@@ -3,13 +3,20 @@ export class EventDetails {
 
     constructor(
     public eventId: number,
-    public FullName: string,  
-    public Email: string,  
-    public IntrestedIn: string,
-    public Message: string
+    public fullName: string,  
+    public brief: string, 
+    public contact: string, 
+    public imageUrl: string, 
+    public location: string, 
+    public dateStart: string, 
+    public dateEnd: string, 
+    public fullDescription :string,
+    
+    
     )	
     {
     
     }
     
     }
+    

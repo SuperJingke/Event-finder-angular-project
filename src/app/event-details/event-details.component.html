@@ -9,7 +9,6 @@
         <div>
             <img src="../../assets/Images/BookUs.PNG">
             <br/><br/><br/>
-            <img src="../../assets/Images/Group 20.png">
             <form (ngSubmit)="onSubmit(f)" #f="ngForm">
                 <br/>
                 <h1>Book Now  {{ eventID }}</h1>
@@ -37,19 +36,19 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail">E-mail</label>
-                    <input type="email" class="form-control" id="Email" name="Email" placeholder="E-Mail" [(ngModel)]="eventdetails.Email"
+                    <input type="email" class="form-control" id="Email" name="Email" placeholder="E-Mail" [(ngModel)]="eventdetails.FullName"
                     required #Email="ngModel">
                     <span class="help-block" *ngIf="(submitted && !Email.valid) ||(!Email.valid && Email.touched)">Email is required</span>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputIntrestedIn">Intrested In</label>
-                    <input type="email" class="form-control" id="IntrestedIn" name="IntrestedIn" placeholder="Intrested In" [(ngModel)]="eventdetails.IntrestedIn"
+                    <input type="email" class="form-control" id="IntrestedIn" name="IntrestedIn" placeholder="Intrested In" [(ngModel)]="eventdetails.FullName"
                     required #IntrestedIn="ngModel">
                     <span class="help-block" *ngIf="(submitted && !IntrestedIn.valid) ||(!IntrestedIn.valid && IntrestedIn.touched)">Intrested In is required</span>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputMessage">Message</label>
-                    <input type="email" class="form-control" id="Message" name="Message" placeholder="Message" [(ngModel)]="eventdetails.Message"
+                    <input type="email" class="form-control" id="Message" name="Message" placeholder="Message" [(ngModel)]="eventdetails.FullName"
                     required #Message="ngModel">
                     <span class="help-block" *ngIf="(submitted && !Message.valid) ||(!Message.valid && Message.touched)">Message is required</span>
                   </div>                  
