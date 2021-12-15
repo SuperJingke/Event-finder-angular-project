@@ -35,25 +35,8 @@ this.bookEventService.getBookedEvents('user').subscribe((data: any) =>
 
 }
 
-onSearch (search:string) 
-{
-this.bookEventService.SearchUnbookedEvents('user', search).subscribe((data: any) => 
-    {
-      console.log(data);
-      this.searchEvents = <EventDetails[]>data;
-    }, (err: any) => {  console.log(err.error.status);this.searchEvents=[]
-  });
-
-}
-
-onEventDetails(event : EventDetails)
-{
-this.selectedEvent = event;
-console.log(this.selectedEvent);
-this.router.navigate(['/event-details']).then(() => {
-  this.selectedEventService.selectEvent(this.selectedEvent);
-});
 
 
-}
+
+
 }
