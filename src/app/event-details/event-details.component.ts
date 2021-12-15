@@ -66,9 +66,9 @@ export class EventDetailsComponent implements OnInit, OnDestroy {
       this.forecast =" ";
       if (data.length>0) {
         if( data[0].precipProb < 10 )
-          this.forecast = "Sunny Skies Ahead";
+          this.forecast = "Forecast for your event: Sunny Skies Ahead";
         else {
-          this.forecast = data[0].precipProb + "% chance of Precipitation";
+          this.forecast = "Forecast for your event: " + data[0].precipProb + "% chance of Precipitation";
         }
       }
 
