@@ -11,6 +11,7 @@ import { SubscriptionFormComponent } from './subscription-form/subscription-form
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import { GallaryComponent } from './gallary/gallary.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     BookEventComponent,
     SubscriptionFormComponent,
     AboutusComponent,
-    NavbarComponent
+    NavbarComponent,
+    GallaryComponent
   ],
   imports: [
     BrowserModule,
